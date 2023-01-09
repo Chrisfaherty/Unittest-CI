@@ -8,20 +8,20 @@ class TestStudent(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print("setUpClass")
+        print("set up class")
 
     def setUp(self):
-        print('setUp')
+        print('setup')
         self.student = Student('John', 'Doe')
 
 
     @classmethod
     def tearDownClass(cls):
-        print('tearDownClass')
+        print('tear down class')
 
 
     def tearDown(self):
-        print('tearDown')
+        print('tear down')
 
 
     def test_full_name(self):
@@ -31,7 +31,7 @@ class TestStudent(unittest.TestCase):
 
     def test_email(self):
         print('test_email')
-        self.assertEqual(self.student.email, 'john.doe@gmail.com')
+        self.assertEqual(self.student.email, 'john.doe@email.com')
 
 
     def test_alert_santa(self):
@@ -49,7 +49,7 @@ class TestStudent(unittest.TestCase):
 
 
     def test_course_schedule_success(self):
-        with patch("student.request.get") as mocked_get:
+        with patch("student.requests.get") as mocked_get:
             mocked_get.return_value.ok = True
             mocked_get.return_value.text = "Success"
 
@@ -62,7 +62,7 @@ class TestStudent(unittest.TestCase):
             mocked_get.return_value.ok = False
 
             schedule = self.student.course_schedule()
-            self.assertEqual(schedule, "Something went wrong with the request!")
+            self.assertEqual(schedule, "Something went wrong")
 
 
 if __name__ == "__main__":

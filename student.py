@@ -20,8 +20,8 @@ class Student:
 
     
     @property
-    def emil(self):
-        return f"{self._first_name.lower()}.{self._last_name.lower()}@emil.com"
+    def email(self):
+        return f"{self._first_name.lower()}.{self._last_name.lower()}@email.com"
     
 
     def alert_santa(self):
@@ -29,7 +29,7 @@ class Student:
 
     
     def apply_extension(self, days):
-        self.end_date = self.end_date + timedelta(days=days)
+        self.end_date += timedelta(days=days)
 
 
     def course_schedule(self):
@@ -38,4 +38,4 @@ class Student:
         if response.ok:
             return response.text
         else:
-            return "soomething went wrong with the request!"
+            return "Something went wrong"
