@@ -10,7 +10,7 @@ class Student:
         self._first_name = first_name
         self._last_name = last_name
         self._start_date = date.today()
-        self.end_date = date.today() + timedelts(days=365)
+        self.end_date = date.today() + timedelta(days=365)
         self.naughty_list = False
     
 
@@ -26,3 +26,7 @@ class Student:
 
     def alert_santa(self):
         self.naughty_list = True
+
+    
+    def apply_extension(self, days):
+        self.end_date = self.end_date + timedelta(days=days)
